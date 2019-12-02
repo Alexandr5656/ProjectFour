@@ -11,7 +11,10 @@ class SpriteManager{
 
     }
     loadSpriteImages(){
-
+        this.sprites.push(loadImage(Black.png));
+        this.sprites.push(loadImage(Green.png));
+        this.sprites.push(loadImage(Red.png));
+        this.sprites.push(loadImage(Orange.png));
     }
     addSprite(){
 
