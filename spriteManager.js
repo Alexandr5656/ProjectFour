@@ -35,7 +35,7 @@ class spriteManager{
         image(this.sprites[2],500,500)
     }
     moveAll(){
-
+        
     }
     filterOutliers(){
 
