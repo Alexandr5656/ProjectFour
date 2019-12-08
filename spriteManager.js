@@ -1,43 +1,54 @@
-class spriteManager{
-    constructor(){
-        this.sprites=[]
+class spriteManager {
+    constructor() {
+        this.sprites = []
         this.images = new Map();
         this.states = {
-            fall : 0,
-            left : 1,
-            right : 2,
-            drag : 3
+            fall: 0,
+            left: 1,
+            right: 2,
+            drag: 3
         };
 
     }
-    loadSpriteImages(){
-        this.sprites.push(loadImage('Sprites/Black.png'));
-        this.sprites.push(loadImage('Sprites/Orange.png'));
-        this.sprites.push(loadImage('Sprites/Green.png'));
-        this.sprites.push(loadImage('Sprites/Red.png'));
-        return(this.sprites.length);
-    }
-    addSprite(){
-        //i have no clue
-    }
-    getLength(){
+    loadSpriteImages() {
+        loadImage('Sprites/Black.png');
+        loadImage('Sprites/Orange.png');
+        loadImage('Sprites/Green.png');
+        loadImage('Sprites/Red.png');
         return (this.sprites.length);
     }
-    clearAll(){
-        
-            this.sprites.splice(0,this.sprites.length)
-        
+    addSprite(sprite) {
+        //new sprite object
+        this.sprites.push(new good())
+        return (this.sprites.length);
     }
-    transitionAll(){
+    getLength() {
+        return (this.sprites.length);
+    }
+    clearAll() {
+
+        this.sprites.splice(0, this.sprites.length)
 
     }
-    displayAll(){
-        image(this.sprites[2],500,500)
+    transitionAll() {
+        this.sprites.forEach(element => {
+            element.transition(this.states)
+
+        });
+
     }
-    moveAll(){
-        
+    displayAll() {
+        this.sprites.forEach(element => {
+            element.display(this.images);
+        });
     }
-    filterOutliers(){
+    moveAll() {
+        this.sprites.forEach(element => {
+            element.move(this.states);
+
+        });
+    }
+    filterOutliers() {
 
     }
 

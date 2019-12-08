@@ -6,7 +6,8 @@
 
 "use strict"; //catch some common coding errors
 let sMgr;
-function preload(){
+
+function preload() {
     sMgr = new spriteManager();
     sMgr.loadSpriteImages();
 }
@@ -16,6 +17,9 @@ function preload(){
 
 function setup() {
     createCanvas(2000, 1000)
+    imageMode(CENTER);
+    fill('purple');
+    textSize(50)
     sMgr.displayAll()
 }
 
@@ -23,6 +27,17 @@ function setup() {
  * draw :
  */
 function draw() {
-    
+    background('pink');
+    text(sMgr.getLength(), 50, 50);
+    sMgr.transitionAll();
+    sMgr.displayAll();
+    sMgr.moveAll();
 }
 
+function keyTyped() {
+    if (key == '=') {
+        sMgr.addSprite();
+    } else if (key == 'c') {
+        sMgr.clearAll();
+    }
+}
