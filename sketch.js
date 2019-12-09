@@ -20,7 +20,7 @@ function setup() {
     imageMode(CENTER);
     fill('purple');
     textSize(50)
-    sMgr.displayAll()
+        // sMgr.displayAll()
 }
 
 /**
