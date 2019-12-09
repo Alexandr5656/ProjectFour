@@ -1,7 +1,7 @@
 /**
- * Yourfirstand Lastname
- * IGME-102: Assignment Name, m/d/19
- * Summarization of sketch activity
+ * Alexander Burbano
+ * IGME-102: Project 4, 12/9/19
+ * User spawns objects with equals sign ,clears them with minus sign, and can drag them with mouse clicks
  */
 
 "use strict"; //catch some common coding errors
@@ -16,11 +16,15 @@ function preload() {
  */
 
 function setup() {
-    createCanvas(2000, 1000)
+    createCanvas(500, 600)
     imageMode(CENTER);
     fill('purple');
     textSize(50)
         // sMgr.displayAll()
+        let hero = "Nakia of the River tribe";
+let result = hero.split("");
+print(result)
+
 }
 
 /**
@@ -29,9 +33,13 @@ function setup() {
 function draw() {
     background('pink');
     text(sMgr.getLength(), 50, 50);
+    
+    if(frameCount%5==0)
     sMgr.transitionAll();
+
     sMgr.displayAll();
     sMgr.moveAll();
+    sMgr.filterOutliers();
 }
 
 function keyTyped() {

@@ -6,12 +6,13 @@ class good {
         this.state = states.fall;
         this.stateIndex = 0;
         this.stateImages = [
-            ['F1', 'F2', 'F3', 'F4'],
-            ['L1', 'L2', 'L3', 'L4'],
-            ['R1', 'R2', 'R3', 'R4'],
-            ['D1', 'D2', 'D3', 'D4']
+            ['F1', 'F2', 'F3', 'F4','F5','F6'],
+            ['L1', 'L2', 'L3', 'L4','L5'],
+            ['R1', 'R2', 'R3', 'R4','R5'],
+            ['D1', 'D2', 'D3', 'D4','D5','D6','D7']
         ];
     }
+    //Checks if a vector is within the radius
     isWithin(location) {
         if (location.dist(this.location) < this.radius) {
             return true;
@@ -19,6 +20,7 @@ class good {
             return false;
         }
     }
+    //Updates image
     updateIndex() {
         if (this.stateIndex >= this.stateImages[this.state].length - 1) {
             this.stateIndex = 0;
@@ -26,6 +28,7 @@ class good {
             this.stateIndex += 1;
         }
     }
+    //Displays image
     display(img) {
         let locals = this.stateImages[this.state][this.stateIndex];
         image(img.get(locals), this.location.x, this.location.y)
@@ -33,6 +36,7 @@ class good {
 
 
     }
+    //switches stages depending on whats happening
     transition(states) {
         let mice = createVector(mouseX, mouseY);
         if (this.isWithin(mice) && mouseIsPressed) {
@@ -51,13 +55,14 @@ class good {
         return [this.state, this.stateIndex]
 
     }
+    //makes the sprite move
     move() {
         let fall = createVector(0, this.speed)
         let drag = createVector(mouseX, mouseY);
         let horizontal = createVector(this.speed, 0)
         drag.sub(this.location)
-            //drag.limit(1)
-        print(this.state)
+        drag.limit(1)
+       
         switch (this.state) {
             case 0:
                 this.location.add(fall)
